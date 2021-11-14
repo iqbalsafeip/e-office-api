@@ -12,6 +12,12 @@ const sifatSuratRoutes = require('./routes/sifat_surat.routes');
 const statusSuratRoutes = require('./routes/status_surat.routes');
 const tindakanDisposisiRoutes = require('./routes/tindakan_disposisi.routes');
 const pegawaiRoutes = require('./routes/pegawai.routes');
+const instansiRoutes = require('./routes/instansi.routes');
+const jabatanRoutes = require('./routes/jabatan.routes');
+const unitKerjaRoutes = require('./routes/unit_kerja.routes');
+const mappingRoutes = require('./routes/mapping_uk.routes');
+const dataJabatan = require('./routes/data_jabatan.routes');
+const suratRoutes = require('./routes/surat.routes');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,5 +38,14 @@ app.use('/klasifikasi_surat', klasifikasiSuratRoutes);
 app.use('/sifat_surat', sifatSuratRoutes);
 app.use('/status_surat', statusSuratRoutes);
 app.use('/tindakan_disposisi', tindakanDisposisiRoutes);
+app.use('/instansi', instansiRoutes);
+app.use('/jabatan', jabatanRoutes);
+app.use('/unit_kerja', unitKerjaRoutes);
+app.use('/mapping-unit-kerja', mappingRoutes );
+app.use('/data-jabatan', dataJabatan );
+
+
+app.use('/surat', suratRoutes);
+
 
 module.exports = app;

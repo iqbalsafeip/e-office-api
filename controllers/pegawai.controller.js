@@ -37,8 +37,33 @@ function save(req,res) {
 }
 
 function index(req,res){
+
     models.tbl_pegawai.findAll().then(result =>{
         if(result.length === 0){
+            res.status(404).json({
+                message: "Data Not Found"
+            })
+        } else {
+            res.status(200).json({
+                data: result
+            })
+        }
+    }).catch(result =>{
+        res.status(500).json({
+            message : "failed to get",
+            data: result
+        })
+    })
+}
+
+function getById(req,res){
+    let id = req.params.id;
+    console.log(req.userData);
+    if(!id){
+        id = req.userData.pegawai_id
+    }
+    models.tbl_pegawai.findOne({where: {id: id}}).then(result =>{
+        if(!result){
             res.status(404).json({
                 message: "Data Not Found"
             })
@@ -127,5 +152,6 @@ module.exports = {
     save,
     update,
     index,
-    destroy
+    destroy,
+    getById
 };

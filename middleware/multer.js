@@ -8,6 +8,7 @@ const storage = multer.diskStorage({
         switch(file.fieldname){
             case 'ttd_file' : return cb(null, './uploads/ttd_file');
             case 'photo_file' : return cb(null, './uploads/photo_file');
+            case 'file_surat' : return cb(null, './uploads/file_surat');
         }
     },
     filename: function(req,file,cb){

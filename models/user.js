@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.User_role, {foreignKey: {
         name: 'UserRoleId'
       }})
+
+      this.belongsTo(models.tbl_pegawai, {
+        foreignKey : {
+          name: 'pegawai_id'
+        }
+      })
     }
   };
   User.init({
@@ -20,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
     password: DataTypes.STRING,
     pegawai_id: DataTypes.INTEGER,
     UserRoleId: DataTypes.INTEGER,
+    is_active: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'User',

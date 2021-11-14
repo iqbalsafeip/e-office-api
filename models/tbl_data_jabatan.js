@@ -3,23 +3,22 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class tbl_sifat_surat extends Model {
+  class tbl_data_jabatan extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      
+      // define association here
     }
   };
-  tbl_sifat_surat.init({
-    sifat: DataTypes.STRING,
-    keterangan: DataTypes.STRING,
-    is_active: DataTypes.INTEGER
+  tbl_data_jabatan.init({
+    id_pegawai: DataTypes.INTEGER,
+    id_unit_kerja_jabatan: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'tbl_sifat_surat',
+    modelName: 'tbl_data_jabatan',
   });
-  return tbl_sifat_surat;
+  return tbl_data_jabatan;
 };
